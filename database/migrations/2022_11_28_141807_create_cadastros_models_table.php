@@ -18,7 +18,7 @@ class CreateCadastrosModelsTable extends Migration
             $table->string('nome');
             $table->string('cpf')->unique();
             $table->string('endereco');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

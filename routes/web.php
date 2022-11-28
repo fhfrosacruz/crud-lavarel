@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', 'CadastrosController@index');
 Route::get('/show/{id}', 'CadastrosController@show');
+Route::get('/cadastrar', 'CadastrosController@create');
+Route::post('/', 'CadastrosController@store');
 //Route::get('/vizualizar', [CadastrosController::class, 'vizualizar']);
 //Route::get('/visualiza/{id}', 'CadastrosController@index');

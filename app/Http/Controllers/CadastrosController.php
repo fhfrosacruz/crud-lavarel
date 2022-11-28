@@ -33,7 +33,7 @@ class CadastrosController extends Controller
      */
     public function create()
     {
-        //
+        return view('/cadastrar');
     }
 
     /**
@@ -44,7 +44,15 @@ class CadastrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $cad = $this->dados_tbl->create([
+            'nome'=>$request->nome,
+            'cpf'=>$request->cpf,
+            'endereco'=>$request->endereço
+            ]);
+            
+        if($cad){
+            return redirect('/');
+        }
     }
 
     /**
