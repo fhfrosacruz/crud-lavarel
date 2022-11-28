@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CadastrosModel; //imposta o componente model para ser usado neste local
 
 class CadastrosController extends Controller
 {
+    private $dados_tbl; //tras todo o conteudo da tbl Cadastros
+
+    public function __construct()
+    {
+        $this->dados_tbl = new CadastrosModel(); //variavel dados..., é uma instancia de CadastrosModel
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,10 @@ class CadastrosController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $dadosCadastrados = $this->dados_tbl->all();
+        
+       // dd($this->dados_tbl->all()); // comando de vardump do laravel
+        return view('index', compact('dadosCadastrados'));
     }
 
     /**
@@ -45,7 +55,8 @@ class CadastrosController extends Controller
      */
     public function show($id)
     {
-        //
+        $dadosCadastrados = $this->dados_tbl->find($id);
+        return view('show', compact('dadosCadastrados'));
     }
 
     /**

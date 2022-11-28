@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', 'CadastrosController@index');
+Route::get('/show/{id}', 'CadastrosController@show');
+//Route::get('/vizualizar', [CadastrosController::class, 'vizualizar']);
+//Route::get('/visualiza/{id}', 'CadastrosController@index');
