@@ -75,7 +75,9 @@ class CadastrosController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($this->dados_tbl->all());
+        $dadosCadastrados = $this->dados_tbl->find($id);
+        return view('/cadastrar', compact('dadosCadastrados'));
     }
 
     /**
@@ -87,7 +89,13 @@ class CadastrosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($this->dados_tbl->all());
+        $this->dados_tbl->where(['id'=>$id])->update([
+            'nome'=>$request->nome,
+            'cpf'=>$request->cpf,
+            'endereco'=>$request->endereço
+        ]);
+        return redirect('/');
     }
 
     /**
@@ -98,6 +106,6 @@ class CadastrosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->dados_tbl->destroy($id);
     }
 }

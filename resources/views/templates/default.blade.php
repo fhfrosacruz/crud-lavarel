@@ -9,5 +9,6 @@
 </head>
 <body>
     @yield('inicial')
+    <script src="{{url("/assets/js/javascript.js")}}"></script>
 </body>
 </html>

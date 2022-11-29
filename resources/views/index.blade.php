@@ -9,6 +9,7 @@
         </a>
       </div>
     <div class="col-8 m-auto">
+      @csrf
         <table class="table text-center">
             <thead class="thead-dark">
               <tr>
@@ -30,10 +31,10 @@
                   <a href="{{url("show/$item->id")}}">
                     <button class="btn btn-dark">Visualizar</button>
                   </a>
-                  <a href="">
+                  <a href="{{url("cadastrar/$item->id/editar")}}">
                     <button class="btn btn-primary">Editar</button>
                   </a>
-                  <a href="">
+                  <a href="{{url("cadastrar/$item->id")}}" class="del_for_js">
                     <button class="btn btn-danger">Deletar</button>
                   </a>
                 </td>
